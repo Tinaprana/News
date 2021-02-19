@@ -25,10 +25,11 @@ struct ContentView: View {
                         ImageView(withURL: post.urlToImage ?? "")
                         
                         Text(post.title)
-                            .fontWeight(.black)
+                           .font(Font.custom("OpenSans-Bold", size: 22))
+           
                         
                         Text(post.publishedAt!)
-                            .fontWeight(.medium)
+                            .font(Font.custom("OpenSans-Regular", size: 18))
                             .foregroundColor(.gray)
                         
                         
