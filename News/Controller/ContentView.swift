@@ -25,7 +25,7 @@ struct ContentView: View {
                         ImageView(withURL: post.urlToImage ?? "")
                         
                         Text(post.title)
-                           .font(Font.custom("OpenSans-Bold", size: 22))
+                           .font(Font.custom("OpenSans-Bold", size: 18))
            
                         
                         Text(post.publishedAt!)
