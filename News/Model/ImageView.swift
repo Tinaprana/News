@@ -10,24 +10,21 @@ import Combine
 import SwiftUI
 struct ImageView: View {
     @ObservedObject var imageLoader:ImageLoader
-    @State var image:UIImage = UIImage()
-    init(withURL urlToImage:String) {
-        imageLoader = ImageLoader(urlToImage:urlToImage)
+    
+    init(withURL url:String) {
+        imageLoader = ImageLoader(urlToImage:url)
     }
+    
     var body: some View {
-        VStack {
-            Image(uiImage: image)
-                .resizable()
-                //                .aspectRatio(contentMode: .fit)
-                .frame(width:300, height:100)
-            
-        }.onReceive(imageLoader.dataPublisher) { data in
-            self.image = UIImage(data: data) ?? UIImage()
-        }
+        
+        
+        Image(uiImage: imageLoader.image ?? UIImage())
+            .resizable()
+            .frame(width:300, height:100)
     }
 }
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
         ImageView(withURL: "")
     }
-} 
+}
